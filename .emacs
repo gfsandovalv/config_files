@@ -1,19 +1,17 @@
-(custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ansi-color-names-vector
-   ["#242424" "#e5786d" "#95e454" "#cae682" "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
+
+(custom-set-variables '(ansi-color-names-vector ["#242424" "#e5786d" "#95e454" "#cae682" "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
  '(custom-enabled-themes (quote (tsdh-dark)))
  '(send-mail-function (quote smtpmail-send-it)))
-(custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
 
+(custom-set-faces)
 
 					; start package.el with emacs
 (require 'package)
@@ -25,6 +23,7 @@
 (require 'auto-complete)
 					; do default config for auto-complete
 (require 'auto-complete-config)
+
 (ac-config-default)
 
 ;start yasnippet with emacs
@@ -47,7 +46,10 @@
 (add-hook 'c++-mode-hook 'my:ac-c-header-init)
 (add-hook 'c-mode-hook 'my:ac-c-header-init)
 
-
+(electric-pair-mode)
+(add-hook 'LaTeX-mode-hook
+	  '(lambda ()
+	     (define-key LaTeX-mode-map (kbd "$") 'self-insert-command)))
 (electric-pair-mode 1)
 (global-linum-mode 1)
 
@@ -56,3 +58,23 @@
 
 (load-file "~/.emacs.d/linumplus.el")
 
+
+(require 'package)
+(package-initialize)
+
+(require 'auto-complete)
+(require 'auto-complete-config)
+(ac-config-default)
+
+(require 'ac-math)
+(add-to-list 'ac-modes 'latex-mode)   ; make auto-complete aware of `latex-mode`
+
+(defun ac-LaTeX-mode-setup () ; add ac-sources to default ac-sources
+  (setq ac-sources
+	(append '(ac-source-math-unicode ac-source-math-latex ac-source-latex-commands)
+		ac-sources))
+  )
+(add-hook 'LaTeX-mode-hook 'ac-LaTeX-mode-setup)
+(global-auto-complete-mode t)
+
+(setq ac-math-unicode-in-math-p t)
