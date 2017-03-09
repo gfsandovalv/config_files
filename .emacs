@@ -112,7 +112,7 @@
 	     (define-key LaTeX-mode-map (kbd "$") 'self-insert-command)))
 (electric-pair-mode 1)
 (global-linum-mode 1)
-
+(show-paren-mode 1)
 (setq linum-format 'smart)
 ;(setq linum-format "%4d \u2502 ")
 
