@@ -124,9 +124,12 @@ if [ -x /usr/bin/mint-fortune ]; then
      /usr/bin/mint-fortune
 fi
 
+export TERM=xterm-256color
+
 alias emc='emacs -nw'
 alias emcs='sudo emacs -nw'
-alias g11='g++ -std=c++11 -fsanitize=address -fsanitize=leak -fsanitize=undefined'
+alias c++='g++ -std=c++11 -Wall -fsanitize=address -fsanitize=leak -fsanitize=undefined'
+alias g++='g++ -std=c++11'
 alias apagar='echo 1011|sudo -S shutdown -h 0'
 alias suspend='echo 1011|sudo -S pm-suspend'
 alias hibernate='echo 1011|sudo -S pm-hibernate'
@@ -136,7 +139,8 @@ alias vi='vim --cmd ":set nu"'
 alias vis='sudo vim --cmd ":set nu"'
 alias ejt='sudo umount /dev/'
 alias update='echo 1011|sudo -S apt-get update'
-alias upgrade='echo 1011|sudo -S apt-get upgrade'
+alias upgrade='sudo apt-get upgrade'
 alias vga='xrandr --output LVDS1 --auto --output VGA1 --mode 1280x1024 --right-of LVDS1'
 alias vgaoff='xrandr --output VGA1 --off'
 alias ffox='firefox -private'
+alias gitpush='git push -u origin master'
