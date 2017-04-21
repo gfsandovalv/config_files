@@ -60,7 +60,7 @@
  '(ansi-color-faces-vector
    [default default default italic underline success warning error])
  '(compilation-message-face (quote default))
- '(custom-enabled-themes (quote (darktooth)))
+;; '(custom-enabled-themes (quote (darktooth)))
  '(custom-safe-themes
    (quote
     ("c9321e2db48a21fc656a907e97ee85d8cd86967855bf0bed3998bcf9195c758b" "357d5abe6f693f2875bb3113f5c031b7031f21717e8078f90d9d9bc3a14bcbd8" "b571f92c9bfaf4a28cb64ae4b4cdbda95241cd62cf07d942be44dc8f46c491f4" "f78de13274781fbb6b01afd43327a4535438ebaeec91d93ebdbba1e3fba34d3c" "b9b1a8d2ec1d5c17700e1a09256f33c2520b26f49980ed9e217e444c381279a9" "3d5307e5d6eb221ce17b0c952aa4cf65dbb3fa4a360e12a71e03aab78e0176c5" "6f441c0e5d8199f08eb4b73e9c697710282bcae95e5925b7649ddfa8cea2e24c" "28ec8ccf6190f6a73812df9bc91df54ce1d6132f18b4c8fcc85d45298569eb53" "ab04c00a7e48ad784b52f34aa6bfa1e80d0c3fcacc50e1189af3651013eb0d58" "7356632cebc6a11a87bc5fcffaa49bae528026a78637acd03cae57c091afd9b9" "f9574c9ede3f64d57b3aa9b9cef621d54e2e503f4d75d8613cbcc4ca1c962c21" "78559045fb299f3542c232166ad635c59cf0c6578d80a58b885deafe98a36c66" "85d609b07346d3220e7da1e0b87f66d11b2eeddad945cac775e80d2c1adb0066" default)))
@@ -239,19 +239,17 @@ static char *gnus-pointer[] = {
 (setenv "PATH" (concat (getenv "PATH") ":/usr/local/texlive/2016/bin/x86_64-linux"))
 (setq exec-path (append exec-path '("/usr/local/texlive/2016/bin/x86_64-linuxy")))
 
-(load-file "~/.emacs.d/highlight-current-line.el")
+
 ;;(load-file "~/.emacs.d/elpa/anti-zenburn-theme-20160725.1559/anti-zenburn-theme.el")
 (load-file "~/.emacs.d/elpa/moe-theme-20170111.1838/moe-dark-theme.el")
 ;;(load-file "~/.emacs.d/elpa/moe-theme-20170111.1838/moe-dark-theme.el")
 
 
-
-
-(require 'highlight-current-line)
-(highlight-current-line-on t)
-
+(global-hl-line-mode 1)
+ 
 ;; To customize the background color
-(set-face-background 'highlight-current-line-face "brightblack")
+(set-face-background 'hl-line "#595959")  ;; Emacs 22 Only
+
 
 (cua-mode t)
 ;; after copy Ctrl+c in Linux X11, you can paste by `yank' in emacs
