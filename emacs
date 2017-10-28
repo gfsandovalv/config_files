@@ -15,7 +15,8 @@
  (global-hl-line-mode 1)
 (load-theme 'monokai t)
 
-(set-face-background 'hl-line "#87005f")  ;; Emacs 22 Only
+(set-face-background 'hl-line "red4")  ;; Emacs 22 Only
+;(set-face-background 'hl-line "#87005f")  ;; Emacs 22 Only
 
 ;; ;; To customize the background color
 
@@ -32,8 +33,8 @@
 ;; (tool-bar-mode -1)
  (put 'scroll-left 'disabled nil)
 
-
- (set-face-attribute 'default nil :height 110)
+;;; set default font size for main buffer
+ (set-face-attribute 'default nil :height 105)
 ; (set-background-color "#3a3a3a")
 
  (setq ispell-program-name "aspell"
@@ -69,7 +70,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(minibuffer-prompt ((t (:background "black" :distant-foreground "red" :foreground "orange")))))
 
 
 ;; Auctex
@@ -93,4 +94,12 @@
  
 (setq ac-math-unicode-in-math-p t)
 
+;;;;whatever
+(add-hook 'minibuffer-setup-hook
+	  (lambda ()
+	    (make-local-variable 'face-remapping-alist)
+	    (add-to-list 'face-remapping-alist '(default (:background "red4")))))
+
+(add-to-list 'default-frame-alist '(height . 24))
+(add-to-list 'default-frame-alist '(width . 80))
 
