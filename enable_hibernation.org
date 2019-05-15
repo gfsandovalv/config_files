@@ -1,0 +1,8 @@
+#Create swap partition
+#modify grub
+#GRUB_CMDLINE_LINUX_DEFAULT="quiet splash resume=UUID=2c8ec945-6967-4538-93ef-49eb4df6f2a1"
+#cat /sys/power/state
+#cat /sys/power/disk
+
+sudo update-grub
+sudo update-initramfs -c -k all and reboot
