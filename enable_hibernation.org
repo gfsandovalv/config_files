@@ -11,3 +11,6 @@
 
 sudo update-grub
 sudo update-initramfs -c -k all and reboot
+
+
+https://askubuntu.com/questions/1053134/hibernation-in-18-04
