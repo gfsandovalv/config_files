@@ -1,6 +1,11 @@
 #Create swap partition
+
 #modify grub
-#GRUB_CMDLINE_LINUX_DEFAULT="quiet splash resume=UUID=2c8ec945-6967-4538-93ef-49eb4df6f2a1"
+#GRUB_CMDLINE_LINUX_DEFAULT="quiet splash resume=UUID=xxxxxxxxx"
+
+#check the file /etc/initramfs-tools/conf.d/resume and add the UUID if required 
+#RESUME=UUID=xxxxxxxxx
+
 #cat /sys/power/state
 #cat /sys/power/disk
 
