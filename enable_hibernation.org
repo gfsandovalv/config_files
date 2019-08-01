@@ -1,6 +1,7 @@
 #Create swap partition
 
 #modify grub
+#use sudo blkid to get the UUID
 #GRUB_CMDLINE_LINUX_DEFAULT="quiet splash resume=UUID=xxxxxxxxx"
 
 #check the file /etc/initramfs-tools/conf.d/resume and add the UUID if required 
